@@ -1,0 +1,24 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+        MYSQL_ROOT_PASSWORD: "mauricio"
+    ports:
+      - "3309:3309"
+  
+  web:
+    build:
+      context: .
+    working_dir: /ac-fullstack #AQUI É DECLARADO O DIRETORIO QUE IRAR SE COLOCADO DENTRO DO CONTEINER ?
+    #command: python3 app.py #AQUI SERÁ EXECULTADO O PYTHON PASSANDO O ARQUIVO APP.PY
+    links:
+      - db                  #DECLARAÇÃO DO LINK DO BANCO MYSQL?
+    volumes:
+      - .:/data 
+      - /templates:/ac-fullstack/         
+    ports:
+      - "5002:5002"
+    depends_on:
+      - db
+

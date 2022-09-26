@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <a href="./cadastrarProduto">cadastro</a>
+</head>
+<body>
+    {% set mensagem = get_flashed_messages() %}
+    {% if mensagem %} 
+        <div class="alert alert-danger" role="alert">
+            {{ mensagem[0] }}
+        </div>
+    {% endif %}
+    {% if dic %}
+        {% for i in dic %}
+            {{ dic[i] }}
+        {% endfor %}
+    {% endif %}    
+</body>
+</html>
