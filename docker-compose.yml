@@ -1,4 +1,4 @@
-version: '3.3'
+version: "3.3"
 services:
   db:
     image: mysql:5.7
@@ -8,17 +8,13 @@ services:
       - "3309:3309"
   
   web:
-    build:
-      context: .
+    build: .
     working_dir: /ac-fullstack #AQUI É DECLARADO O DIRETORIO QUE IRAR SE COLOCADO DENTRO DO CONTEINER ?
-    #command: python3 app.py #AQUI SERÁ EXECULTADO O PYTHON PASSANDO O ARQUIVO APP.PY
+    command: python app.py #AQUI SERÁ EXECULTADO O PYTHON PASSANDO O ARQUIVO APP.PY
     links:
       - db                  #DECLARAÇÃO DO LINK DO BANCO MYSQL?
     volumes:
       - .:/data 
-      - /templates:/ac-fullstack/         
+      - ./templates:/ac-fullstack/templates
     ports:
       - "5002:5002"
-    depends_on:
-      - db
-
