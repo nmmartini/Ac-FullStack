@@ -8,7 +8,8 @@ services:
       - "3309:3309"
   
   web:
-    build: .
+    build: 
+      context: .
     working_dir: /ac-fullstack #AQUI É DECLARADO O DIRETORIO QUE IRAR SE COLOCADO DENTRO DO CONTEINER ?
     command: python app.py #AQUI SERÁ EXECULTADO O PYTHON PASSANDO O ARQUIVO APP.PY
     links:
